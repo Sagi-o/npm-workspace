@@ -11,7 +11,7 @@
     "skipLibCheck": true,                    // Skip type checking of declaration files
     "paths": {
       "@org/shared": [
-        "../shared/src/*",       // For development, points to source files
+        "../shared/src/*",                    // For development, points to source files
       ]
      }
   },
