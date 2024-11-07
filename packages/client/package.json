@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
     "prod": "npm run preview",
+    "lint": "eslint .",
     "clean": "rm -rf dist"
   },
   "dependencies": {
