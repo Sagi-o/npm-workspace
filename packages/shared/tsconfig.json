@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                        // Compile to ES6 for compatibility with Node 16
+    "module": "CommonJS",                   // CommonJS modules for compatibility with Node 16
+    "moduleResolution": "node",             // Node module resolution
+    "declaration": true,                    // Generate .d.ts files for type information
+    "declarationMap": true,                  // Enable source maps for declaration files
+    "outDir": "./dist",                     // Output directory for compiled files
+    "rootDir": "./src",                     // Root directory of the source files
+    "strict": true,                         // Enable strict type-checking
+    "esModuleInterop": true,                // Enable interoperability with CommonJS
+    "forceConsistentCasingInFileNames": true, // Enforce consistent casing in import paths
+    "skipLibCheck": true,                   // Skip type checks of declaration files
+  },
+  "include": ["src"],                       // Include only source files
+  "exclude": ["node_modules", "dist"]       // Exclude build output and dependencies
+}

@@ -1,0 +1,21 @@
+{
+    "name": "@org/shared",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "types": "src/index.ts",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "scripts": {
+      "build": "tsc",
+      "clean": "rm -rf dist",
+      "prepare": "npm run clean && npm run build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "typescript": "^5.6.3"
+    }
+  }
+  

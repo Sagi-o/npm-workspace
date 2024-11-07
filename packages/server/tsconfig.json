@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                        // Use ES6 for modern JavaScript features
+    "module": "CommonJS",                   // CommonJS module format for Node 16
+    "moduleResolution": "node",             // Node-style module resolution
+    "outDir": "./dist",                     // Output directory for compiled files
+    "rootDir": "./src",                     // Root directory of source files
+    "strict": true,                         // Enable strict type-checking
+    "esModuleInterop": true,                // Interoperability between CommonJS and ES Modules
+    "forceConsistentCasingInFileNames": true, // Enforce consistent casing in import paths
+    "skipLibCheck": true,                    // Skip type checking of declaration files
+    "paths": {
+      "@org/shared": [
+        "../shared/src/*",       // For development, points to source files
+      ]
+     }
+  },
+  "include": ["src"],                       // Include only source files
+  "exclude": ["node_modules", "dist"]       // Exclude build output and dependencies
+}
