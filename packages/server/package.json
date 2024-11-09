@@ -15,10 +15,12 @@
   "license": "ISC",
   "dependencies": {
     "@org/shared": "*",
-    "express": "^4.21.1"
+    "@fastify/one-line-logger": "^2.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "fastify": "^5.1.0"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0",
     "@types/node": "^22.9.0",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",

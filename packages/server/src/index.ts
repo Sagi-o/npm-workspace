@@ -1,14 +1,35 @@
-import express from "express";
-import userController from "./modules/user/user.controller";
+import Fastify from "fastify";
+import { userController } from "./modules/user/user.controller";
 import { getSharedFunc } from "@org/shared";
+getSharedFunc()
 
-const app = express();
-const PORT = process.env.PORT || 3003;
+export const buildApp = () => {
+  const app = Fastify({
+    logger: {
+      transport: {
+        target: "@fastify/one-line-logger",
+      },
+    },
+  });
 
-app.use(express.json());
-app.use("/users", userController);
+  // controllers
+  app.register(async (fastify) => {
+    fastify.register(userController, { prefix: "/user" });
+  });
 
-app.listen(PORT, () => {
-  getSharedFunc()
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+  return app;
+};
+
+const app = buildApp();
+
+const start = async () => {
+  try {
+    const port = process.env.PORT ? Number(process.env.PORT) : 3100;
+    await app.listen({ port });
+  } catch (err) {
+    app.log.error(err);
+    process.exit(1);
+  }
+};
+
+start();

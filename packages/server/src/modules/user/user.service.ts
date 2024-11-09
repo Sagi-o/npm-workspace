@@ -1,7 +1,7 @@
-class UserService {
-  public async getAllUsers() {
-    return [];
+import { User, UserRole } from "@org/shared";
+
+export class UserService {
+  async createUser(email: string, password: string): Promise<User> {
+    return { email, role: UserRole.ADMIN };
   }
 }
-
-export default new UserService();

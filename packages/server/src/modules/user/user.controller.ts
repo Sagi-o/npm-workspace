@@ -1,15 +1,17 @@
-import { Router, Request, Response } from "express";
-import userService from "./user.service";
+import { FastifyInstance } from "fastify";
+import { validateDTO } from "../../utils/validation";
+import { UserService } from "./user.service";
+import { CreateUserDTO } from "./user.dto";
 
-const router = Router();
+const userService = new UserService();
 
-router.get("/", async (_req: Request, res: Response) => {
-  const data = await userService.getAllUsers();
-  res.json(data);
-});
-// router.post("/", createUser);
-// router.get("/:id", authenticate, getUserById);
-// router.put("/:id", authenticate, updateUser);
-// router.delete("/:id", authenticate, deleteUser);
-
-export default router;
+export const userController = async (app: FastifyInstance) => {
+  app.get("/", (req, reply) => {
+    reply.send({ testUser: true });
+  });
+  app.post("/", async (req, reply) => {
+    const body = await validateDTO(CreateUserDTO, req.body);
+    const user = await userService.createUser(body.email, body.password);
+    reply.send(user);
+  });
+};
